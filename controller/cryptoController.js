@@ -2,7 +2,7 @@ const Crypto = require("../models/Crypto");
 
 // Controller for fetching cryptocurrency data from db- /stats
 const getCoinStats = async (req, res) => {
-  const { coin } = req.body;
+  const { coin } = req.query;
 
   if (!coin) {
     return res.status(400).json({ error: "Crypto parameter is required." });
@@ -32,7 +32,7 @@ const getCoinStats = async (req, res) => {
 
 // Controller for fetching cryptocurrency deviation
 const getCryptoDeviation = async (req, res) => {
-  const { coin } = req.body;
+  const { coin } = req.query;
 
   if (!coin) {
     return res.status(400).json({ error: "Coin parameter is required." });
