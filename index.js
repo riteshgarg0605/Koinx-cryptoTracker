@@ -7,6 +7,8 @@ require("dotenv").config();
 
 app.use(express.json());
 
+app.get("/stats", getCoinStats);
+
 // Connect to MongoDB and start express server
 mongoose
   .connect(process.env.MONGO_URI)
