@@ -2,12 +2,17 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const { runCryptoJob } = require("./jobs/cryptoJob");
-const { getCoinStats } = require("./controller/cryptoController");
+const {
+  getCoinStats,
+  getCryptoDeviation,
+} = require("./controller/cryptoController");
 require("dotenv").config();
 
 app.use(express.json());
 
 app.get("/stats", getCoinStats);
+
+app.get("/deviation", getCryptoDeviation);
 
 // Connect to MongoDB and start express server
 mongoose
